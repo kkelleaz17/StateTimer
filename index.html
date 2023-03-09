@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Calculator</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+        background-color: #373e40;
+        color: white;
+    }
+
+</style>
+</style>
+<body>
+    <h1 id="Date"></h1>
+    <h1 id="Seconds"></h1>
+</body>
+<script>
+    SetDate();
+
+
+    setInterval(()=>{
+        SetDate();
+    },300);
+  
+function SetDate(){
+  var todaysDate = new Date();
+  var State = new Date("04/03/2023");
+  var timeRemaining = (State.getTime() - todaysDate.getTime());
+  var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+  var minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+  var seconds = Math.floor((timeRemaining / 1000) % 60);
+  document.getElementById('Date').innerHTML =`${(days + 1)} days and ${hours}:${minutes}:${seconds} until state!`
+}
+
+
+
+</script>
+</html>
