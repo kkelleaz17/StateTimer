@@ -25,15 +25,18 @@
 <body>
     <h1 id="Date"></h1>
     <h1 id="Seconds"></h1>
+    <img src="./andrew.jpg" id="andrew" style="display: none;"/>
 </body>
 <script>
     SetDate();
 
-
     setInterval(()=>{
         SetDate();
     },300);
-  
+   setTimeout(()=>{
+    randomandrew();
+   },10000);
+   
 function SetDate(){
   var todaysDate = new Date();
   var State = new Date("04/8/2024");
@@ -54,7 +57,15 @@ function SetDate(){
   document.getElementById('Date').innerHTML =`${(days + 1)} days and ${hours}:${minutes}:${seconds} until state!`
 }
 
-
+function randomandrew(){
+  var audio = new Audio('./scare.mp3');
+  audio.play();
+  setTimeout(()=>{
+    document.getElementById('andrew').style.display = 'none'
+  },[5000])
+        
+  document.getElementById('andrew').style.display = ''
+}
 
 </script>
 </html>
